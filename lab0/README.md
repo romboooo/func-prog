@@ -37,5 +37,4 @@
 - FSharpLint  
 - Fantomas  
 - VS Code
-- FSharp.TypeProviders.SDK
 ---
