@@ -1,13 +1,21 @@
 open LcmTailRec
 open LcmRec
 open LcmModuleSolution
+open System.Diagnostics
+
+let runPythonScript (scriptPath: string) : unit =
+    Process.Start("python3", scriptPath).WaitForExit() |> ignore
 
 [<EntryPoint>]
+
 let main argv =
     let multipleTailRecResult = smallestMultipleTailRec 20
     let multipleRecResult = smallestMultipleRec 20
     let LcmModuleSolutionResult = Solution.findSmallestMultiple 20 
-    printfn "Наименьшее число (хвостовая рекурсия): %d" multipleTailRecResult
-    printfn "Наименьшее число (обычная рекурсия): %d" multipleRecResult
-    printfn "Наименьшее число (модульная реализация): %d" LcmModuleSolutionResult
+    printfn "НОК (хвостовая рекурсия): %d" multipleTailRecResult
+    printfn "НОК (обычная рекурсия): %d" multipleRecResult
+    printfn "НОК (модульная реализация + map): %d" LcmModuleSolutionResult
+    printfn "НОК (python): "
+    runPythonScript "LCM/lcm.py" 
+
     0

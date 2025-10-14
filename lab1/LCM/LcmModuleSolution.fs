@@ -1,9 +1,13 @@
 module LcmModuleSolution
 
 module SequenceGenerator = 
-    let generateNumbersUpTo n =[1L..int64 n]
+    // let generateNumbersUpTo n =[1L..int64 n]
+    // let generateCandidatesFrom start = 
+    //     Seq.initInfinite (fun i -> start + i)
+    let generateNumbersUpTo n = 
+        [1..n] |> List.map int64
     let generateCandidatesFrom start = 
-        Seq.initInfinite (fun i -> start + i)
+        Seq.initInfinite id |> Seq.map (fun i -> int64 start + int64 i)
 
 module Filter = 
     let isDivisibleByAll divisors number = 
