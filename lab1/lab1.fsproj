@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="LCM/LcmInfList.fs" />
     <Compile Include="LCM/LcmModuleSolution.fs" />
     <Compile Include="LCM/monolite/LcmRec.fs" />
     <Compile Include="LCM/monolite/LcmTailRec.fs" />
