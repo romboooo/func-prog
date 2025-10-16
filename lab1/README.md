@@ -24,7 +24,7 @@ task2:
 
 *Обычная рекурсия:*
 
-```
+```f#
 module LcmRec
 
 let rec gcd (a:int64) (b:int64) =
