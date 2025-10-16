@@ -192,3 +192,107 @@ for i in range(1,21):
 
 print(result)
 ```
+
+# task2:
+
+*Обычная рекурсия:*
+
+```f#
+module FibRec 
+
+open System
+
+let fibRec targetDigits =
+    if targetDigits <= 1 then 1
+    else
+        let limit = bigint.Pow(10I, targetDigits - 1)
+        let rec loop a b index =
+            if a >= limit then index
+            else loop (a + b) a (index + 1)
+        loop 1I 1I 2
+```
+
+*Хвостовая рекурсия:*
+
+```f#
+module FibTailRec
+let fibTailRec digitCount =
+    let rec tailRecFib n (a: bigint) (b: bigint) =
+        if b.ToString().Length >=  digitCount  then
+            n
+        else
+            tailRecFib (n + 1) b (a + b)
+    
+    tailRecFib 2 1I 1I
+```
+
+*Бесконечные коллекции*
+```f#
+module FibInfList
+
+let fibInfListCalc targetDigits =
+    if targetDigits <= 1 then 1
+    else
+        let fibSequence = 
+            (1I, 1I, 2) 
+            |> Seq.unfold (fun (prev, curr, index) -> 
+                Some((index, curr), (curr, prev + curr, index + 1)))
+        
+        let threshold = bigint.Pow(10I, targetDigits - 1)
+        
+        fibSequence
+        |> Seq.find (fun (_, fibNum) -> fibNum >= threshold)
+        |> fst
+```
+
+*Map*
+
+```f#
+module FibMap
+
+let fibMapCalc targetDigits =
+    if targetDigits <= 1 then 1
+    else
+        let threshold = bigint.Pow(10I, targetDigits - 1)
+        
+        (0I, 1I, 1)
+        |> Seq.unfold (fun (a, b, index) -> 
+            Some((index, b), (b, a + b, index + 1)))
+        |> Seq.map (fun (index, fibNum) -> (index, fibNum, fibNum >= threshold))
+        |> Seq.find (fun (_, _, isLargeEnough) -> isLargeEnough)
+        |> fun (index, _, _) -> index
+```
+
+*Модульное решение*
+
+```f#
+module FibModuleSolution
+
+module SequenceGenerator =
+    let generateFibonacciSequence () =
+        Seq.unfold (fun (a, b, index) -> 
+            Some((index, a), (b, a + b, index + 1))) (1I, 1I, 1)
+
+module Filter =
+    let hasAtLeastNDigits n (number: bigint) =
+        let rec countDigits num count =
+            if num = 0I then max 1 count
+            else countDigits (num / 10I) (count + 1)
+        countDigits number 0 >= n
+
+module Fold =
+    let findFirst predicate sequence =
+        sequence
+        |> Seq.find (fun (_, value) -> predicate value)
+        |> fst
+
+module Calc =
+    let findFirstFibonacciWithDigits digitCount =
+        SequenceGenerator.generateFibonacciSequence ()
+        |> Fold.findFirst (Filter.hasAtLeastNDigits digitCount)
+```
+
+
+## Вывод:
+
+После решения лабораторной работы 1, я ощутил базовое погружение в ФП и особенности языка f#. Поработал с такими базовыми вещами как хвостовая рекурсия и бесконечные коллекции, которые значительно расширили кругозор и оставили яркий след в моем сердце 
