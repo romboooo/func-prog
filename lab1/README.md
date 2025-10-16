@@ -1,13 +1,13 @@
 # Functional Programming lab1
 
-**Бурейко Роман р3215**
+## Бурейко Роман р3215
 
 
-task1:
+#task1:
 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. 
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-task2: 
+# task2: 
 
 The Fibonacci sequence is defined by the recurrence relation:
 
@@ -32,10 +32,7 @@ Fₙ = Fₙ₋₁ + Fₙ₋₂, where F₁ = 1 and F₂ = 1
 
 The 12th term (**F₁₂ = 144**) is the first term to contain **three digits**.
 
-## Problem
-
 **What is the index of the first term in the Fibonacci sequence to contain 1000 digits?**
-
 
 
 Для каждой проблемы должно быть представлено несколько решений:
