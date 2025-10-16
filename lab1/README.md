@@ -41,7 +41,7 @@ let rec smallestMultipleRec n: int64  =
 
 *Хвостовая рекурсия:*
 
-```
+```f#
 module LcmTailRec
 
 let gcd (a: int64) (b: int64) =
@@ -62,7 +62,7 @@ let smallestMultipleTailRec n =
 ```
 
 *Модульная реализация + map*
-```
+```f#
 module LcmModuleSolution
 
 module SequenceGenerator = 
@@ -94,12 +94,11 @@ module Solution =
     let findSmallestMultiple n =   
         let divisors = SequenceGenerator.generateNumbersUpTo n
         Fold.foldLCM divisors
-
 ```
 
 *Бесконечные коллекции*
 
-```
+```f#
 module LcmInfList
 
 let rec gcd (a:int64) (b:int64) =
@@ -124,7 +123,7 @@ let smallestMultipleInfList n =
 
 *Спец. синтаксис для циклов*
 
-```
+```f#
 module LcmSpecLoop
 
 let rec gcd (a: int64) (b: int64) =
@@ -142,4 +141,23 @@ let smallestMultipleSpecLoop n =
                 yield i
         }
     numbers |> Seq.fold lcm 1L
+```
+
+python:
+```python
+def gcd(a,b):
+    while b != 0:
+        a,b = b, a % b
+    return a
+
+def lcm(a,b):
+    if a == 0 or b == 0:
+        return 0
+    return (a * b) // gcd(a,b)
+
+result = 1
+for i in range(1,21):
+    result = lcm(result,i)
+
+print(result)
 ```
