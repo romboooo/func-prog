@@ -28,6 +28,7 @@ First 12 terms:
 | F₁₀  | 55    |
 | F₁₁  | 89    |
 | F₁₂  | 144   |
+
 The 12th term (**F₁₂ = 144**) is the first term to contain **three digits**.
 Problem
 **What is the index of the first term in the Fibonacci sequence to contain 1000 digits?**
