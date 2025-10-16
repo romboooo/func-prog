@@ -3,6 +3,10 @@ open LcmRec
 open LcmModuleSolution
 open System.Diagnostics
 open LcmInfList
+open FibRec
+open LcmSpecLoop
+open FibTailRec
+open FibModuleSolution
 
 let runPythonScript (scriptPath: string) : unit =
     Process.Start("python3", scriptPath).WaitForExit() |> ignore
@@ -10,15 +14,34 @@ let runPythonScript (scriptPath: string) : unit =
 [<EntryPoint>]
 
 let main argv =
-    let multipleTailRecResult = smallestMultipleTailRec 20
     let multipleRecResult = smallestMultipleRec 20
-    let LcmModuleSolutionResult = Solution.findSmallestMultiple 20 
-    let LcmInfListResult = smallestMultipleInfList 20
-    printfn "НОК (хвостовая рекурсия): %d" multipleTailRecResult
     printfn "НОК (обычная рекурсия): %d" multipleRecResult
+
+    let multipleTailRecResult = smallestMultipleTailRec 20
+    printfn "НОК (хвостовая рекурсия): %d" multipleTailRecResult
+
+    let LcmModuleSolutionResult = Solution.findSmallestMultiple 20 
     printfn "НОК (модульная реализация + map): %d" LcmModuleSolutionResult
-    printfn "НОК (inf sec): %d" LcmInfListResult
+
+    let LcmInfListResult = smallestMultipleInfList 20
+    printfn "НОК (inf seq): %d" LcmInfListResult
+
+    let LcmSpecLoopResult = smallestMultipleSpecLoop 20
+    printfn "НОК (cпец синтаксис для циклов): %d" LcmSpecLoopResult
+
     printfn "НОК (python): "
     runPythonScript "LCM/lcm.py" 
+
+    let fibRecResult = fibRec 1000
+    printfn "Фибоначчи (обычная рекурсия): %d" fibRecResult
+
+    let fibTailRecResult = fibTailRec 1000
+    printfn "Фибоначчи (хвостовая рекурсия): %A" fibTailRecResult
+
+    // let FibModuleSolutionResult = Calc.findFirstFibonacciWithDigits 1000
+    // printfn "Фибоначчи (модульная реализация + map): %A" FibModuleSolutionResult
+
+    printfn "Фибоначчи (python): "
+    runPythonScript "FIB/fib.py"
 
     0

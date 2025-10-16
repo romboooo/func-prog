@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="FIB/monolite/FibRec.fs" />
+    <Compile Include="FIB/monolite/FibTailRec.fs" />
+    <Compile Include="FIB/FibModuleSolution.fs" />
+
+    <Compile Include="LCM/LcmSpecLoop.fs" />
     <Compile Include="LCM/LcmInfList.fs" />
     <Compile Include="LCM/LcmModuleSolution.fs" />
     <Compile Include="LCM/monolite/LcmRec.fs" />
