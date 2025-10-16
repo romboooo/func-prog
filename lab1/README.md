@@ -13,7 +13,8 @@ The Fibonacci sequence is defined by the recurrence relation:
 
 Fₙ = Fₙ₋₁ + Fₙ₋₂, where F₁ = 1 and F₂ = 1
 
-First 12 terms:
+## First 12 terms:
+
 | Term | Value |
 |------|-------|
 | F₁   | 1     |
@@ -30,7 +31,9 @@ First 12 terms:
 | F₁₂  | 144   |
 
 The 12th term (**F₁₂ = 144**) is the first term to contain **three digits**.
-Problem
+
+## Problem
+
 **What is the index of the first term in the Fibonacci sequence to contain 1000 digits?**
 
 
