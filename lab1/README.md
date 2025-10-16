@@ -9,12 +9,43 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
 task2: 
 
+The Fibonacci sequence is defined by the recurrence relation:
+
+\[ F_n = F_{n-1} + F_{n-2}, \text{ where } F_1 = 1 \text{ and } F_2 = 1. \]
+
+Hence the first 12 terms are:
+
+\[
+\begin{align*}
+F_1 &= 1 \\
+F_2 &= 1 \\
+F_3 &= 2 \\
+F_4 &= 3 \\
+F_5 &= 5 \\
+F_6 &= 8 \\
+F_7 &= 13 \\
+F_8 &= 21 \\
+F_9 &= 34 \\
+F_{10} &= 55 \\
+F_{11} &= 89 \\
+F_{12} &= 144
+\end{align*}
+\]
+
+The 12th term, \( F_{12} \), is the first term to contain three digits.
+
+**Problem:** What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
+
+
 
 Для каждой проблемы должно быть представлено несколько решений:
--монолитные реализации с использованием:
+
+-монолитные реализации с использованием:␠␠
     -хвостовой рекурсии;
     -рекурсии (вариант с хвостовой рекурсией не является примером рекурсии);
+
 -модульной реализации, где явно разделена генерация последовательности, фильтрация и свёртка (должны использоваться функции reduce/fold, filter и аналогичные);
+
 -генерация последовательности при помощи отображения (map);
 -работа со спец. синтаксисом для циклов (где применимо);
 -работа с бесконечными списками для языков, поддерживающих ленивые коллекции или итераторы как часть языка (к примеру Haskell, Clojure);
