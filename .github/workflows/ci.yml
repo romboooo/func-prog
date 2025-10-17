@@ -54,5 +54,5 @@ jobs:
     
     - name: Run tests with pytest
       run: |
-        cd ../python
+        cd python
         pytest tests.py -v
