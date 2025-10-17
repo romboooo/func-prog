@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  test-fsharp:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Install Fantomas
+      run: dotnet tool install fantomas --global
+
+    - name: Check formatting
+      run: fantomas --check .
+      
+    - name: Build
+      run: dotnet build --no-restore -warnaserror
+      
+    - name: Test
+      run: dotnet test tests/Tests.fsproj
+      
+    - name: Run main program
+      run: dotnet run --no-build --project lab.fsproj
+  
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+    
+    - name: Run tests with pytest
+      run: |
+        pytest python/tests.py -v
