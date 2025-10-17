@@ -12,4 +12,5 @@ def find_first_fibonacci_with_digits(digit_count):
     return index
 
 
+
 find_first_fibonacci_with_digits(1000)
