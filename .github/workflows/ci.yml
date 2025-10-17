@@ -1,4 +1,4 @@
- name: CI
+name: CI
 
 on:
   push:
@@ -17,22 +17,22 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: dotnet restore ../lab1.fsproj
+      run: dotnet restore
 
     - name: Install Fantomas
       run: dotnet tool install fantomas --global
 
     - name: Check formatting
-      run: fantomas --check ../
+      run: fantomas --check .
       
     - name: Build
-      run: dotnet build ../lab1.fsproj --no-restore -warnaserror
+      run: dotnet build --no-restore -warnaserror
       
     - name: Test
-      run: dotnet test ../tests/Tests.fsproj --verbosity normal
+      run: dotnet test tests/Tests.fsproj --verbosity normal
       
     - name: Run main program
-      run: dotnet run --no-build --project ../lab1.fsproj
+      run: dotnet run --no-build --project lab1.fsproj
   
   test-python:
     runs-on: ubuntu-latest
@@ -51,5 +51,5 @@ jobs:
     
     - name: Run tests with pytest
       run: |
-        cd ../python
+        cd python
         pytest tests.py -v
