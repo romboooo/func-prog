@@ -29,10 +29,10 @@ jobs:
       run: dotnet build --no-restore -warnaserror
       
     - name: Test
-      run: dotnet test tests/Tests.fsproj
+      run: dotnet test ../tests/Tests.fsproj --verbosity normal
       
     - name: Run main program
-      run: dotnet run --no-build --project lab.fsproj
+      run: dotnet run --no-build --project ../lab1.fsproj
   
   test-python:
     runs-on: ubuntu-latest
@@ -51,4 +51,5 @@ jobs:
     
     - name: Run tests with pytest
       run: |
-        pytest python/tests.py -v
+        cd python
+        pytest ../tests.py -v
