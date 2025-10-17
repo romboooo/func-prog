@@ -9,7 +9,7 @@
     <Compile Include="FIB/monolite/FibRec.fs" />
     <Compile Include="FIB/monolite/FibTailRec.fs" />
     <Compile Include="FIB/FibModuleSolution.fs" />
-
+    <Compile Include="FIB/FibInfList.fs" />
     <Compile Include="LCM/LcmSpecLoop.fs" />
     <Compile Include="LCM/LcmInfList.fs" />
     <Compile Include="LCM/LcmModuleSolution.fs" />

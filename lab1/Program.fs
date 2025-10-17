@@ -7,6 +7,7 @@ open FibRec
 open LcmSpecLoop
 open FibTailRec
 open FibModuleSolution
+open FibInfList
 
 let runPythonScript (scriptPath: string) : unit =
     Process.Start("python3", scriptPath).WaitForExit() |> ignore
@@ -37,6 +38,9 @@ let main argv =
 
     let fibTailRecResult = fibTailRec 1000
     printfn "Фибоначчи (хвостовая рекурсия): %A" fibTailRecResult
+
+    let FibInfListResult = fibInfListCalc 1000
+    printfn "Фибоначчи (inf seq): %A" FibInfListResult
 
     // let FibModuleSolutionResult = Calc.findFirstFibonacciWithDigits 1000
     // printfn "Фибоначчи (модульная реализация + map): %A" FibModuleSolutionResult
