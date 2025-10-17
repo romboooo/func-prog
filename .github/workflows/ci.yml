@@ -1,8 +1,8 @@
-name: CI
+ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   
 jobs:
   test-fsharp:
@@ -17,16 +17,16 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ../lab1.fsproj
 
     - name: Install Fantomas
       run: dotnet tool install fantomas --global
 
     - name: Check formatting
-      run: fantomas --check .
+      run: fantomas --check ../
       
     - name: Build
-      run: dotnet build --no-restore -warnaserror
+      run: dotnet build ../lab1.fsproj --no-restore -warnaserror
       
     - name: Test
       run: dotnet test ../tests/Tests.fsproj --verbosity normal
@@ -51,5 +51,5 @@ jobs:
     
     - name: Run tests with pytest
       run: |
-        cd python
-        pytest ../tests.py -v
+        cd ../python
+        pytest tests.py -v
