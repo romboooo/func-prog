@@ -18,4 +18,8 @@
     <Compile Include="LCM/monolite/LcmTailRec.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FsUnit" Version="7.1.1" />
+  </ItemGroup>
 </Project>
