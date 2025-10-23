@@ -22,7 +22,7 @@ let main argv =
     let multipleTailRecResult = smallestMultipleTailRec 20
     printfn "НОК (хвостовая рекурсия): %d" multipleTailRecResult
 
-    let LcmModuleSolutionResult = Solution.findSmallestMultiple 20 
+    let LcmModuleSolutionResult = Solution.findSmallestMultiple 20
     printfn "НОК (модульная реализация + map): %d" LcmModuleSolutionResult
 
     let LcmInfListResult = smallestMultipleInfList 20
@@ -32,7 +32,7 @@ let main argv =
     printfn "НОК (cпец синтаксис для циклов): %d" LcmSpecLoopResult
 
     printfn "НОК (python): "
-    runPythonScript "LCM/lcm.py" 
+    runPythonScript "LCM/lcm.py"
 
     let fibRecResult = fibRec 1000
     printfn "Фибоначчи (обычная рекурсия): %d" fibRecResult
