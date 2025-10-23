@@ -25,7 +25,7 @@ jobs:
       run: dotnet tool install fantomas --global
 
     - name: Check formatting
-      run: fantomas .
+      run: fantomas --check .
       
     - name: Build
       run: dotnet build --no-restore -warnaserror
