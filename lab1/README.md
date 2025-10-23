@@ -1,6 +1,6 @@
 # Functional Programming lab1
 
-## Бурейко Роман р3215
+## Бурейко Роман р3315
 
 
 # task1:
