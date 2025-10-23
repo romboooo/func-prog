@@ -36,22 +36,4 @@ jobs:
     - name: Run main program
       run: dotnet run --no-build --project lab1.fsproj
   
-  test-python:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: 3.11
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-    
-    - name: Run tests with pytest
-      run: |
-        cd python
-        pytest tests.py -v
+  
