@@ -8,6 +8,7 @@ let lcm (a: int64) (b: int64) =
 
 
 let smallestMultipleInfList n =
-    let targetLCM = { 1..n } |> Seq.map int64 |> Seq.reduce lcm
-
-    Seq.initInfinite (fun i -> (int64 i + 1L) * targetLCM) |> Seq.head
+    Seq.initInfinite (fun i -> int64 i + 1L)
+    |> Seq.take n
+    |> Seq.map int64
+    |> Seq.reduce lcm
